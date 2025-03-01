@@ -15,7 +15,7 @@ const gradientAnimation = keyframes`
 // Full-screen container with animated gradient background
 const GradientContainer = styled(Container)(({ theme }) => ({
   minHeight: '100vh',
-  minWidth:'100%',
+  minWidth: '100%',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -48,8 +48,12 @@ const AuthPage = ({ onAuthSuccess }) => {
   const [signupEmail, setSignupEmail] = useState('');
   const [signupPassword, setSignupPassword] = useState('');
 
+  // Error state
+  const [error, setError] = useState('');
+
   const handleTabChange = (e, newValue) => {
     setTabIndex(newValue);
+    setError(''); // Clear errors when switching tabs
   };
 
   // Login handler
@@ -61,7 +65,7 @@ const AuthPage = ({ onAuthSuccess }) => {
       onAuthSuccess();
       navigate('/dashboard');
     } catch (err) {
-      console.error("Login failed:", err.response ? err.response.data : err);
+      setError("Login failed: " + (err.response ? JSON.stringify(err.response.data) : err.message));
     }
   };
 
@@ -74,7 +78,7 @@ const AuthPage = ({ onAuthSuccess }) => {
       onAuthSuccess();
       navigate('/dashboard');
     } catch (err) {
-      console.error("Signup failed:", err.response ? err.response.data : err);
+      setError("Signup failed: " + (err.response ? JSON.stringify(err.response.data) : err.message));
     }
   };
 
@@ -154,6 +158,11 @@ const AuthPage = ({ onAuthSuccess }) => {
             </Box>
           )}
         </Box>
+        {error && (
+          <Typography variant="body2" color="error" sx={{ mt: 2 }}>
+            {error}
+          </Typography>
+        )}
       </FormBox>
     </GradientContainer>
   );
