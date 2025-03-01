@@ -1,8 +1,5 @@
 
 ---
-
-## Frontend README
-
 ```markdown
 # Task Manager Frontend
 
