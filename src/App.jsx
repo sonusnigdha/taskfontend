@@ -5,7 +5,7 @@ import AuthPage from './components/AuthPage';
 import Dashboard from './components/Dashboard';
 import TaskList from './components/TaskList';
 import TaskForm from './components/TaskForm';
-import './app.css'
+import './App.css'
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('token'));
