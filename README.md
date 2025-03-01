@@ -1,6 +1,3 @@
-
----
-```markdown
 # Task Manager Frontend
 
 ## Overview
@@ -24,7 +21,5 @@ This repository contains the frontend for the Task Manager application. The clie
 - **Axios:** For making API calls.
 - **Material UI & Emotion:** For styling and creating a modern, responsive design.
 - **Vercel:** For deployment.
-
-## Project Structure
 
 
